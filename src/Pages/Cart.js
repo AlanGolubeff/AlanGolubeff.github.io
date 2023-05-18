@@ -3,6 +3,7 @@ import { Button, Container, Col, Row, Table } from 'react-bootstrap';
 import { useCart } from 'react-use-cart';
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 import { BsCartCheck, BsCartX } from 'react-icons/bs';
+import { Link } from '@reach/router';
 
 const Cart = () => {
     const [theme] = useThemeHook();
@@ -68,16 +69,20 @@ const Cart = () => {
                                 <BsCartX size="1.7rem" />
                                 Cancelar Compra
                             </Button>
-                            <Button variant="success"
-                                className="m-2"
-                            >
-                                <BsCartCheck size="1.7rem" />
-                                Comprar todo
-                            </Button>
+                            <Link to={'/OrdenDeCompra'}>
+                                <Button variant="success"
+                                    className="m-2"
+                                >
+
+                                    <BsCartCheck size="1.7rem" />
+
+                                    Comprar todo
+                                </Button>
+                            </Link>
                         </Col>
                     </Row>}
             </Row>
-        </Container>
+        </Container >
     );
 };
 

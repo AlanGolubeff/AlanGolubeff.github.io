@@ -12,7 +12,7 @@ import ProductDetails from "./Pages/ProductDetails";
 import SignIn from "./Pages/SignIn";
 import Register from "./Pages/Register";
 import MyAccount from "./Pages/MyAccount";
-
+import OrdenDeCompra from "./Pages/OrdenDeCompra";
 
 function App() {
   const [theme] = useThemeHook();
@@ -26,6 +26,7 @@ function App() {
         <Register path="register" />
         <ProductDetails path="product-details/:productId" />
         <Cart path="/cart" />
+        <OrdenDeCompra path="/OrdenDeCompra" />
       </Router>
     </main>
   );
