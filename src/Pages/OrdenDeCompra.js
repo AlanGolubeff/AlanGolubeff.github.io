@@ -6,7 +6,7 @@ import "./OrdenDeCompra.css"
 
 import { useThemeHook } from '../GlobalComponents/ThemeProvider';
 export default function OrdenDeCompra() {
-    //const [theme] = useThemeHook;
+    const { theme } = useThemeHook;
     const {
         items,
         cartTotal,
@@ -18,7 +18,8 @@ export default function OrdenDeCompra() {
     const [phone, setPhone] = useState('');
     const [address, setAddress] = useState('');
     const [orderCode, setOrderCode] = useState('');
-    let newStock = 0
+    const [orderTotal, setOrderTotal] = useState(0);
+    //let newStock = 0
     // const db = getFirestore();
 
     const order = {
@@ -32,6 +33,7 @@ export default function OrdenDeCompra() {
         const orderCollection = collection(db, 'Orders');
         addDoc(orderCollection, order).then(({ id }) => {
             setOrderCode(id);
+            setOrderTotal(cartTotal);
             emptyCart();
         })
     }
@@ -84,12 +86,12 @@ export default function OrdenDeCompra() {
                                     </Modal.Title>
                                 </Modal.Header>
                                 <Modal.Body>
-                                    <h2>{name}</h2>
-                                    <h2>{email}</h2>
-                                    <h2>{phone}</h2>
-                                    <h2>{address}</h2>
-                                    <h2>{cartTotal}</h2>
-                                    <h2>{orderCode}</h2>
+                                    <h2 >Full Name: {name}</h2>
+                                    <h2 >Email: {email}</h2>
+                                    <h2 >Phone: {phone}</h2>
+                                    <h2 >adress: {address}</h2>
+                                    <h2 >Your order total: {orderTotal}</h2>
+                                    <h2 >Your order code: {orderCode}</h2>
                                 </Modal.Body>
                                 <Modal.Footer>
                                     <Button onClick={handleClose} >Close</Button>
